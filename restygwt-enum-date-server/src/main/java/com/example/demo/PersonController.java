@@ -23,6 +23,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.api.PersonDto;
@@ -32,6 +33,7 @@ import com.example.api.PersonType;
 @RestController
 public class PersonController {
 	
+	@RequestMapping("/persons")
 	public List<PersonDto> getPersons() {
 		List<PersonDto> persons = new ArrayList<>();
 		
