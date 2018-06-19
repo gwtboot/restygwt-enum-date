@@ -26,6 +26,7 @@
   <packaging>pom</packaging>
   
   <modules>
+  	 <module>restygwt-enum-date-api</module>
      <module>restygwt-enum-date-server</module>
 	 <module>restygwt-enum-date-client-gwtui</module>
   </modules>
