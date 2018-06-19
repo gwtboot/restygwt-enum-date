@@ -144,7 +144,7 @@ java -jar restygwt-enum-date-server-1.0.0-SNAPSHOT.jar
 
 # Epilog
 
-Advantages of this structure:
+Advantages of this structure in comparison with this structure [Spring Boot with GWT](https://github.com/gwtboot/gwt-boot-samples/tree/master/gwt-boot-sample-basic-with-spring-boot):
 - Clean separation of the modules and each modules are independent of each other.
 - The GWT module is clean and pure GWT Maven libs and is ready for GWT 3.
 - The Spring Boot module is completely pure Spring Boot, no other Maven libs is included.
