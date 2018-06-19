@@ -16,15 +16,12 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.example.client;
+package com.example.api;
 
-import java.util.List;
+public interface PersonEndpoint {
 
-import org.fusesource.restygwt.client.MethodCallback;
-
-import com.example.api.PersonDto;
-
-public interface PersonClient {
+	String PERSON_LIST = "/v1/persons";
 	
-	void getPersons(MethodCallback<List<PersonDto>> callback);
+	String DATE_FORMAT = "yyyy-MM-dd@HH:mm:ss.SSSZ";
+
 }

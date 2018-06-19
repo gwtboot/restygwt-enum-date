@@ -26,7 +26,7 @@ public class PersonDto {
 
 	private String name;
 	
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd@HH:mm:ss.SSSZ")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = PersonEndpoint.DATE_FORMAT)
 	private Date date;
 	
 	private PersonType personType;

@@ -23,6 +23,17 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum PersonType {
 
-	COOL,
-	BORING;	
+	COOL("cool"),
+	BORING("boring");	
+	
+	private String type;
+
+	private PersonType(String type) {
+		this.type = type;
+	}
+
+	public String getType() {
+		return type;
+	}
+	
 }

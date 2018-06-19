@@ -27,13 +27,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.api.PersonDto;
+import com.example.api.PersonEndpoint;
 import com.example.api.PersonType;
 
 @CrossOrigin
 @RestController
 public class PersonController {
 	
-	@RequestMapping("/persons")
+	@RequestMapping(PersonEndpoint.PERSON_LIST)
 	public List<PersonDto> getPersons() {
 		List<PersonDto> persons = new ArrayList<>();
 		

@@ -19,14 +19,20 @@
 package com.example.client;
 
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Logger;
 
 import org.fusesource.restygwt.client.Defaults;
+import org.fusesource.restygwt.client.Method;
+import org.fusesource.restygwt.client.MethodCallback;
+import org.fusesource.restygwt.client.Resource;
+import org.fusesource.restygwt.client.RestServiceProxy;
 
 import com.example.api.PersonDto;
+import com.example.api.PersonEndpoint;
 import com.example.api.PersonType;
 import com.google.gwt.core.client.EntryPoint;
-import com.google.gwt.user.client.Window;
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.RootPanel;
 
@@ -36,8 +42,6 @@ public class BasicGwtEntryPoint implements EntryPoint {
 
 	@Override
 	public void onModuleLoad() {
-		Defaults.setDateFormat("\"yyyy-MM-dd@HH:mm:ss.SSSZ\"");
-		
 		PersonDto person = new PersonDto();
 		person.setDate(new Date());
 		person.setName("Lofi");
@@ -45,8 +49,24 @@ public class BasicGwtEntryPoint implements EntryPoint {
 		
 		Button button = new Button("Click me: " + person.getPersonType().name());
 		button.addClickHandler(clickEvent -> {
-			Window.alert("Hello World!");
 			logger.info("Hello World!");
+			
+			Defaults.setDateFormat(PersonEndpoint.DATE_FORMAT);
+			PersonClient personClient = GWT.create(RestPersonClient.class);
+			Resource resource = new Resource("http://localhost:9090/server");
+			((RestServiceProxy) personClient).setResource(resource);
+			
+			personClient.getPersons(new MethodCallback<List<PersonDto>>() {
+				@Override
+				public void onSuccess(Method method, List<PersonDto> response) {
+					response.forEach(i -> logger.info("Person: "));
+				}
+				
+				@Override
+				public void onFailure(Method method, Throwable exception) {
+					logger.info("Error: " + exception);
+				}
+			});
 		});
 
 		RootPanel.get("helloButton").add(button);

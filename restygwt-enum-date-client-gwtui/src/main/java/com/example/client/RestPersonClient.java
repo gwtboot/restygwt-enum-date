@@ -30,6 +30,7 @@ import org.fusesource.restygwt.client.MethodCallback;
 import org.fusesource.restygwt.client.RestService;
 
 import com.example.api.PersonDto;
+import com.example.api.PersonEndpoint;
 
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
@@ -37,7 +38,7 @@ public interface RestPersonClient extends PersonClient, RestService {
 
 	@Override
 	@GET
-	@Path("/persons")
+	@Path(PersonEndpoint.PERSON_LIST)
 	void getPersons(MethodCallback<List<PersonDto>> callback);
 
 }
