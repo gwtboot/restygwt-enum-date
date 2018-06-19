@@ -104,6 +104,32 @@ Here is how to create the _javascript_ distribution from the Client module, see 
 			</plugin>
 ```
 
+```
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0 http://maven.apache.org/xsd/assembly-2.0.0.xsd">
+	<id>javascript</id>
+	<formats>
+		<format>jar</format>
+	</formats>
+	
+	<includeBaseDirectory>false</includeBaseDirectory>
+
+	<fileSets>
+		<fileSet>
+			<directory>${project.build.directory}/${project.artifactId}-${project.version}</directory>
+			<outputDirectory>.</outputDirectory>
+			<includes>
+				<include>**/*</include>
+			</includes>
+			<excludes>
+				<exclude>**/*index.html</exclude>
+			</excludes>
+		</fileSet>
+	</fileSets>
+</assembly>
+```
+
 # Epilog
 
 Advantages of this structure:
