@@ -17,7 +17,7 @@
  | under the License.
 -->
 <module rename-to="example">
-   <inherits name="com.github.gwtboot.starter.Starter"/>
+   <inherits name="com.github.gwtboot.starter.RestyGwtStarter"/>
    
-   <entry-point class='com.example.Example'/>
+   <entry-point class='com.example.client.BasicGwtEntryPoint'/>
 </module>
