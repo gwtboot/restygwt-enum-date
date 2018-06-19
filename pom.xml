@@ -27,8 +27,8 @@
   
   <modules>
   	 <module>restygwt-enum-date-api</module>
-     <module>restygwt-enum-date-server</module>
-	 <module>restygwt-enum-date-client-gwtui</module>
+	 <module>restygwt-enum-date-client</module>
+	 <module>restygwt-enum-date-server</module>
   </modules>
   
 </project>
