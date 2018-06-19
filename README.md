@@ -55,53 +55,53 @@ which only contains the transpiled JavaScript files from GWT. Here is how the de
 distribution created, see this [pom.xml](https://github.com/lofidewanto/restygwt-enum-date/blob/master/restygwt-enum-date-server/pom.xml):
 
 ```
-			<plugin>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>unpack</id>
-						<phase>prepare-package</phase>
-						<goals>
-							<goal>unpack</goal>
-						</goals>
-						<configuration>
-							<artifactItems>
-								<artifactItem>
-									<groupId>com.example</groupId>
-									<artifactId>restygwt-enum-date-client</artifactId>
-									<version>${restygwt-enum-date-client.version}</version>
-									<classifier>javascript</classifier>
-								</artifactItem>
-							</artifactItems>
-							<excludes>**/*index.html</excludes>
-							<outputDirectory>${project.build.directory}/classes/static</outputDirectory>
-							<overWriteReleases>false</overWriteReleases>
-							<overWriteSnapshots>true</overWriteSnapshots>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+	<plugin>
+		<artifactId>maven-dependency-plugin</artifactId>
+		<executions>
+			<execution>
+				<id>unpack</id>
+				<phase>prepare-package</phase>
+				<goals>
+					<goal>unpack</goal>
+				</goals>
+				<configuration>
+					<artifactItems>
+						<artifactItem>
+							<groupId>com.example</groupId>
+							<artifactId>restygwt-enum-date-client</artifactId>
+							<version>${restygwt-enum-date-client.version}</version>
+							<classifier>javascript</classifier>
+						</artifactItem>
+					</artifactItems>
+					<excludes>**/*index.html</excludes>
+					<outputDirectory>${project.build.directory}/classes/static</outputDirectory>
+					<overWriteReleases>false</overWriteReleases>
+					<overWriteSnapshots>true</overWriteSnapshots>
+				</configuration>
+			</execution>
+		</executions>
+	</plugin>
 ```
 Here is how to create the _javascript_ distribution from the Client module, see this [pom.xml](https://github.com/lofidewanto/restygwt-enum-date/blob/master/restygwt-enum-date-client/pom.xml) and this Assembly file [distribution.xml](https://github.com/lofidewanto/restygwt-enum-date/blob/master/restygwt-enum-date-client/src/assembly/distribution.xml):
 
 ```
-			<plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<configuration>
-					<descriptors>
-						<descriptor>src/assembly/distribution.xml</descriptor>
-					</descriptors>
-				</configuration>
-				<executions>
-					<execution>
-						<id>make-assembly</id>
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+	<plugin>
+		<artifactId>maven-assembly-plugin</artifactId>
+		<configuration>
+			<descriptors>
+				<descriptor>src/assembly/distribution.xml</descriptor>
+			</descriptors>
+		</configuration>
+		<executions>
+			<execution>
+				<id>make-assembly</id>
+				<phase>package</phase>
+				<goals>
+					<goal>single</goal>
+				</goals>
+			</execution>
+		</executions>
+	</plugin>
 ```
 
 ```
