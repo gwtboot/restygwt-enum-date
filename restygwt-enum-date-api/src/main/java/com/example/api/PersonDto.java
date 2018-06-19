@@ -19,19 +19,19 @@
 package com.example.api;
 
 import java.util.Date;
+import java.util.logging.Logger;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class PersonDto {
+
+	private static Logger logger = Logger.getLogger(PersonDto.class.getName());
 
 	private String name;
 
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = PersonEndpoint.DATE_FORMAT)
 	private Date date;
 
-	// With JsonIgnore it works, without you get RestyGWT error:
-	// Not a valid JSON format!
-	// @JsonIgnore
 	private PersonType personType;
 
 	public String getName() {
@@ -51,6 +51,7 @@ public class PersonDto {
 	}
 
 	public PersonType getPersonType() {
+		logger.info("getPersonType: " + personType);
 		return personType;
 	}
 

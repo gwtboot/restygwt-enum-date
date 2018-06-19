@@ -18,22 +18,21 @@
  */
 package com.example.api;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonValue;
 
-@JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum PersonType {
 
-	COOL("cool"),
-	BORING("boring");	
-	
+	COOL("cool"), BORING("boring");
+
 	private String type;
 
 	private PersonType(String type) {
 		this.type = type;
 	}
 
+	@JsonValue
 	public String getType() {
 		return type;
 	}
-	
+
 }
