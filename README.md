@@ -1,2 +1,2 @@
-# restygwt-enum-date
-RestyGWT Example for Date and Enum
+# RestyGWT restygwt-enum-date
+RestyGWT Example for Date and Enum.
