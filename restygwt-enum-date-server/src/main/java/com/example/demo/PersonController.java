@@ -47,6 +47,9 @@ public class PersonController {
 		person2.setName("Kulaki");
 		person2.setPersonType(PersonType.BORING);
 		
+		persons.add(person2);
+		persons.add(person1);
+		
 		return persons;
 	}
 
