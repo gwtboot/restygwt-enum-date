@@ -110,4 +110,6 @@ Advantages of this structure:
 - Clean separation of the modules and each modules are independent of each other.
 - The GWT module is clean and pure GWT Maven libs and is ready for GWT 3.
 - The Spring Boot module is completely pure Spring Boot, no other Maven libs is included.
+- In the deployment you just need to start the Server module with Spring Boot as you include the transpiled JavaScript automatically from the dependency from the Client module.
+
 
