@@ -30,7 +30,11 @@ https://github.com/gwtboot/gwt-boot-samples
 ```
 
 ## Server
-For the Server part you just start the Spring Boot app. In this example the class: _RestygwtDateEnumServerApplication.java_.
+For the Server part you just start the Spring Boot app. In this example the class: 
+
+```
+RestygwtDateEnumServerApplication.java
+```
 
 That's it. You will have two clean separate processes which are independent of each other. All the 
 Maven libs are also independent, so it won't mix between the Client and the Server part. 
