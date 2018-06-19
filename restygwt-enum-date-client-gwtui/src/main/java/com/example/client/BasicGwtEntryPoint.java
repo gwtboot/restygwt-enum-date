@@ -18,8 +18,11 @@
  */
 package com.example.client;
 
+import java.util.Date;
 import java.util.logging.Logger;
 
+import com.example.api.PersonDto;
+import com.example.api.PersonType;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
@@ -31,7 +34,12 @@ public class BasicGwtEntryPoint implements EntryPoint {
 
 	@Override
 	public void onModuleLoad() {
-		Button button = new Button("Click me");
+		PersonDto person = new PersonDto();
+		person.setDate(new Date());
+		person.setName("Lofi");
+		person.setPersonType(PersonType.COOL);
+		
+		Button button = new Button("Click me: " + person.getPersonType().name());
 		button.addClickHandler(clickEvent -> {
 			Window.alert("Hello World!");
 			logger.info("Hello World!");
