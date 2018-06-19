@@ -39,7 +39,7 @@ RestygwtDateEnumServerApplication.java
 That's it. You will have two clean separate processes which are independent of each other. All the 
 Maven libs are also independent, so it won't mix between the Client and the Server part. 
 Your Client module is therefore ready for GWT 3, because it does not use the Maven libs from the Server, 
-in this case which comes from the Spring Boot framework.
+in this case, which come from the Spring Boot framework.
 
 # Deployment / Runtime
 
@@ -82,7 +82,7 @@ distribution created, see this [pom.xml](https://github.com/lofidewanto/restygwt
 				</executions>
 			</plugin>
 ```
-Here is how to create the _javascript_ distribution from the Client module, see this [pom.xml](https://github.com/lofidewanto/restygwt-enum-date/blob/master/restygwt-enum-date-client/pom.xml):
+Here is how to create the _javascript_ distribution from the Client module, see this [pom.xml](https://github.com/lofidewanto/restygwt-enum-date/blob/master/restygwt-enum-date-client/pom.xml) and this Assembly file [distribution.xml](https://github.com/lofidewanto/restygwt-enum-date/blob/master/restygwt-enum-date-client/src/assembly/distribution.xml):
 
 ```
 			<plugin>
