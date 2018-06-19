@@ -61,8 +61,8 @@ public class BasicGwtEntryPoint implements EntryPoint {
 			personClient.getPersons(new MethodCallback<List<PersonDto>>() {
 				@Override
 				public void onSuccess(Method method, List<PersonDto> response) {
-					response.forEach(person -> logger
-							.info("Person: " + person.getName() + " - " + person.getPersonType().getType()));
+					response.forEach(person -> logger.info("Person: " + person.getName() + " - Date: "
+							+ person.getDate() + " - Type: " + person.getPersonType()));
 				}
 
 				@Override

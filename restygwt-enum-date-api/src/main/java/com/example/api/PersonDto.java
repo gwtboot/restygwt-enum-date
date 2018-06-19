@@ -25,10 +25,13 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class PersonDto {
 
 	private String name;
-	
+
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = PersonEndpoint.DATE_FORMAT)
 	private Date date;
-	
+
+	// With JsonIgnore it works, without you get RestyGWT error: Not a valid JSON
+	// format!
+	// @JsonIgnore
 	private PersonType personType;
 
 	public String getName() {
@@ -54,5 +57,5 @@ public class PersonDto {
 	public void setPersonType(PersonType personType) {
 		this.personType = personType;
 	}
-	
+
 }
