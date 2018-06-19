@@ -8,39 +8,50 @@ This example shows how to structure your Maven modules for a development toward 
 # Modules
 
 There are three modules available:
-1. API: restygwt-enum-date-api
-2. Client / Web browser with GWT: restygwt-enum-date-client
-3. Server with Spring Boot: restygwt-enum-date-server
+1. _API_: restygwt-enum-date-api
+2. _Client / Web browser with GWT_: restygwt-enum-date-client
+3. _Server with Spring Boot_: restygwt-enum-date-server
 
 # Development Time
 
-On the development time you should start two processes. 
+On the development time you should start two processes: Client and Server. But this is
+not a must. If you just need to build your UI you only need to start the Client part
+and you can mock all the call to the REST APIs in your Server part.
 
 ## API
-For the API you just need to run mvn:clean install to deploy your API to the local
+For the APIs you just need to run mvn:clean install to deploy your API to the local
 Maven repository. The API modul is your interface between the Client and the Server part.
 
 ## Client
-For the Client part you start the standard process for GWT just like the example in the GWT Boot: 
+For the Client part you can start the standard process for GWT just like it is shown in the example from GWT Boot: 
+
+```
 https://github.com/gwtboot/gwt-boot-samples
+```
 
 ## Server
-For the Server part you just start the Spring Boot app. In this example: RestygwtDateEnumServerApplication.
+For the Server part you just start the Spring Boot app. In this example the class: _RestygwtDateEnumServerApplication.java_.
 
 That's it. You will have two clean separate processes which are independent of each other. All the 
-Maven libs are also independent, so it won't mix and your Client module is ready for GWT 3, because
-it does not use the Maven libs from the Server, in this case Spring Boot part.
+Maven libs are also independent, so it won't mix between the Client and the Server part. 
+Your Client module is therefore ready for GWT 3, because it does not use the Maven libs from the Server, 
+in this case which comes from the Spring Boot framework.
 
 # Deployment / Runtime
 
 On the deployment time you only need the Server module, since the Server module has a dependency
-to the Client module but only for the JavaScript part. In the Client module the Assembly Plugin will
-create a special package like restygwt-enum-date-client-1.0.0-SNAPSHOT-javascript which
-only contains the transpiled JavaScript files. Here is how the dependency to the JavaScript
-created:
+to the Client module but only for the JavaScript part. In the Client module the Maven Assembly Plugin will
+create a special package with classifier _javascript_. In our example 
 
-```xml
-           <plugin>
+```
+restygwt-enum-date-client-1.0.0-SNAPSHOT-javascript 
+```
+
+which only contains the transpiled JavaScript files from GWT. Here is how the dependency to the JavaScript
+distribution created, see this [pom.xml](https://github.com/lofidewanto/restygwt-enum-date/blob/master/restygwt-enum-date-server/pom.xml):
+
+```
+			<plugin>
 				<artifactId>maven-dependency-plugin</artifactId>
 				<executions>
 					<execution>
@@ -63,6 +74,27 @@ created:
 							<overWriteReleases>false</overWriteReleases>
 							<overWriteSnapshots>true</overWriteSnapshots>
 						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+```
+Here is how to create the _javascript_ distribution from the Client module, see this [pom.xml](https://github.com/lofidewanto/restygwt-enum-date/blob/master/restygwt-enum-date-client/pom.xml):
+
+```
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptors>
+						<descriptor>src/assembly/distribution.xml</descriptor>
+					</descriptors>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
 					</execution>
 				</executions>
 			</plugin>
