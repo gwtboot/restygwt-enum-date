@@ -21,6 +21,8 @@ package com.example.client;
 import java.util.Date;
 import java.util.logging.Logger;
 
+import org.fusesource.restygwt.client.Defaults;
+
 import com.example.api.PersonDto;
 import com.example.api.PersonType;
 import com.google.gwt.core.client.EntryPoint;
@@ -34,6 +36,8 @@ public class BasicGwtEntryPoint implements EntryPoint {
 
 	@Override
 	public void onModuleLoad() {
+		Defaults.setDateFormat("\"yyyy-MM-dd@HH:mm:ss.SSSZ\"");
+		
 		PersonDto person = new PersonDto();
 		person.setDate(new Date());
 		person.setName("Lofi");
