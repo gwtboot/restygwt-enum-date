@@ -39,6 +39,8 @@ import com.google.gwt.user.client.ui.RootPanel;
 public class BasicGwtEntryPoint implements EntryPoint {
 
 	private static Logger logger = Logger.getLogger(BasicGwtEntryPoint.class.getName());
+	
+	private static final String SERVER_CONTEXT_PATH = "http://localhost:9090/server";
 
 	@Override
 	public void onModuleLoad() {
@@ -53,7 +55,7 @@ public class BasicGwtEntryPoint implements EntryPoint {
 			
 			Defaults.setDateFormat(PersonEndpoint.DATE_FORMAT);
 			PersonClient personClient = GWT.create(RestPersonClient.class);
-			Resource resource = new Resource("http://localhost:9090/server");
+			Resource resource = new Resource(SERVER_CONTEXT_PATH);
 			((RestServiceProxy) personClient).setResource(resource);
 			
 			personClient.getPersons(new MethodCallback<List<PersonDto>>() {
