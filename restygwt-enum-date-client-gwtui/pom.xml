@@ -31,6 +31,18 @@
   <name>restygwt-enum-date-client-gwt-ui</name>
   
   <dependencies>
+  		<dependency>
+			<groupId>com.example</groupId>
+			<artifactId>restygwt-enum-date-api</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.example</groupId>
+			<artifactId>restygwt-enum-date-api</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<classifier>sources</classifier>
+		</dependency>
+		
       <dependency>
          <groupId>com.github.gwtboot</groupId>
          <artifactId>gwt-boot-starter-restygwt</artifactId>
