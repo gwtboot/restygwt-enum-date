@@ -39,7 +39,7 @@ import com.google.gwt.user.client.ui.RootPanel;
 public class BasicGwtEntryPoint implements EntryPoint {
 
 	private static Logger logger = Logger.getLogger(BasicGwtEntryPoint.class.getName());
-	
+
 	private static final String SERVER_CONTEXT_PATH = "http://localhost:9090/server";
 
 	@Override
@@ -48,25 +48,27 @@ public class BasicGwtEntryPoint implements EntryPoint {
 		person.setDate(new Date());
 		person.setName("Lofi");
 		person.setPersonType(PersonType.COOL);
-		
+
 		Button button = new Button("Click me: " + person.getPersonType().name());
 		button.addClickHandler(clickEvent -> {
 			logger.info("Hello World!");
-			
+
 			Defaults.setDateFormat(PersonEndpoint.DATE_FORMAT);
 			PersonClient personClient = GWT.create(RestPersonClient.class);
 			Resource resource = new Resource(SERVER_CONTEXT_PATH);
 			((RestServiceProxy) personClient).setResource(resource);
-			
+
 			personClient.getPersons(new MethodCallback<List<PersonDto>>() {
 				@Override
 				public void onSuccess(Method method, List<PersonDto> response) {
-					response.forEach(person -> logger.info("Person: " + person.getName()));
+					response.forEach(person -> logger
+							.info("Person: " + person.getName() + " - " + person.getPersonType().getType()));
 				}
-				
+
 				@Override
 				public void onFailure(Method method, Throwable exception) {
 					logger.info("Error: " + exception);
+					throw new RuntimeException(exception);
 				}
 			});
 		});
