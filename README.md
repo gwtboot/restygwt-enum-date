@@ -130,6 +130,18 @@ Here is how to create the _javascript_ distribution from the Client module, see 
 </assembly>
 ```
 
+To run in the deployment time you should build from the top Maven module _restygwt-enum-date_:
+
+```
+mvn:clean install
+```
+
+To run the Spring Boot standalone:
+
+```
+java -jar restygwt-enum-date-server-1.0.0-SNAPSHOT.jar
+```
+
 # Epilog
 
 Advantages of this structure:

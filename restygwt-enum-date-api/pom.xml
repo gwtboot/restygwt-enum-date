@@ -30,6 +30,7 @@
 	<groupId>com.example</groupId>
 	<artifactId>restygwt-enum-date-api</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>restygwt-enum-date-api</name>
 	
 	<properties>
