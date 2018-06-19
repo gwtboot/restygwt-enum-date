@@ -21,7 +21,6 @@ package com.example.api;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class PersonDto {
 
@@ -30,9 +29,9 @@ public class PersonDto {
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = PersonEndpoint.DATE_FORMAT)
 	private Date date;
 
-	// With JsonIgnore it works, without you get RestyGWT error: Not a valid JSON
-	// format!
-	@JsonIgnore
+	// With JsonIgnore it works, without you get RestyGWT error:
+	// Not a valid JSON format!
+	// @JsonIgnore
 	private PersonType personType;
 
 	public String getName() {
