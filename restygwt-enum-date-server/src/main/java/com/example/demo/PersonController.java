@@ -16,13 +16,36 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.example.api;
+package com.example.demo;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
-@JsonFormat(shape = JsonFormat.Shape.OBJECT)
-public enum PersonType {
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RestController;
 
-	COOL,
-	BORING;	
+import com.example.api.PersonDto;
+import com.example.api.PersonType;
+
+@CrossOrigin
+@RestController
+public class PersonController {
+	
+	public List<PersonDto> getPersons() {
+		List<PersonDto> persons = new ArrayList<>();
+		
+		PersonDto person1 = new PersonDto();
+		person1.setDate(new Date());
+		person1.setName("Lofi");
+		person1.setPersonType(PersonType.COOL);
+		
+		PersonDto person2 = new PersonDto();
+		person2.setDate(new Date());
+		person2.setName("Kulaki");
+		person2.setPersonType(PersonType.BORING);
+		
+		return persons;
+	}
+
 }
