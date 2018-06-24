@@ -16,14 +16,15 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.example.api;
+package com.example.server;
 
-public interface PersonEndpoint {
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-	String PERSON_LIST = "/v1/persons";
+@SpringBootApplication
+public class RestygwtDateEnumServerApplication {
 
-	String PERSON_WITH_ERROR_LIST = "v1/persons/error";
-
-	String DATE_FORMAT = "yyyy-MM-dd@HH:mm:ss.SSSZ";
-
+	public static void main(String[] args) {
+		SpringApplication.run(RestygwtDateEnumServerApplication.class, args);
+	}
 }

@@ -18,12 +18,46 @@
  */
 package com.example.api;
 
-public interface PersonEndpoint {
+public class ErrorDto {
 
-	String PERSON_LIST = "/v1/persons";
+	private String status;
 
-	String PERSON_WITH_ERROR_LIST = "v1/persons/error";
+	private String errorcode;
 
-	String DATE_FORMAT = "yyyy-MM-dd@HH:mm:ss.SSSZ";
+	private String message;
+
+	private String detail;
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getErrorcode() {
+		return errorcode;
+	}
+
+	public void setErrorcode(String errorcode) {
+		this.errorcode = errorcode;
+	}
+
+	public String getDetail() {
+		return detail;
+	}
+
+	public void setDetail(String detail) {
+		this.detail = detail;
+	}
 
 }

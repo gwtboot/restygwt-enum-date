@@ -16,15 +16,28 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.example.demo;
+package com.example.client;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import java.util.List;
 
-@SpringBootApplication
-public class RestygwtDateEnumServerApplication {
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
-	public static void main(String[] args) {
-		SpringApplication.run(RestygwtDateEnumServerApplication.class, args);
-	}
+import org.fusesource.restygwt.client.DirectRestService;
+
+import com.example.api.PersonDto;
+import com.example.api.PersonEndpoint;
+
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
+public interface DirectRestPersonWithErrorClient extends DirectRestService, PersonWithErrorClient {
+
+	@Override
+	@GET
+	@Path(PersonEndpoint.PERSON_WITH_ERROR_LIST)
+	List<PersonDto> getPersonsWithError();
+
 }

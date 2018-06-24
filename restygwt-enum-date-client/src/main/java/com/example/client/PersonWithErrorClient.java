@@ -16,14 +16,14 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.example.api;
+package com.example.client;
 
-public interface PersonEndpoint {
+import java.util.List;
 
-	String PERSON_LIST = "/v1/persons";
+import com.example.api.PersonDto;
 
-	String PERSON_WITH_ERROR_LIST = "v1/persons/error";
+public interface PersonWithErrorClient {
 
-	String DATE_FORMAT = "yyyy-MM-dd@HH:mm:ss.SSSZ";
+	List<PersonDto> getPersonsWithError();
 
 }

@@ -25,6 +25,7 @@ import java.util.logging.Logger;
 import org.fusesource.restygwt.client.Defaults;
 import org.fusesource.restygwt.client.Method;
 import org.fusesource.restygwt.client.MethodCallback;
+import org.fusesource.restygwt.client.REST;
 import org.fusesource.restygwt.client.Resource;
 import org.fusesource.restygwt.client.RestServiceProxy;
 
@@ -34,6 +35,7 @@ import com.example.api.PersonType;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.RootPanel;
 
 public class BasicGwtEntryPoint implements EntryPoint {
@@ -44,16 +46,35 @@ public class BasicGwtEntryPoint implements EntryPoint {
 
 	@Override
 	public void onModuleLoad() {
-		PersonDto person = new PersonDto();
-		person.setDate(new Date());
-		person.setName("Lofi");
-		person.setPersonType(PersonType.COOL);
+		PersonDto coolPerson = new PersonDto();
+		coolPerson.setDate(new Date());
+		coolPerson.setName("Lofi");
+		coolPerson.setPersonType(PersonType.COOL);
 
-		Button button = new Button("Click me: " + person.getPersonType().name());
-		button.addClickHandler(clickEvent -> {
-			logger.info("Hello World!");
+		PersonDto boringPerson = new PersonDto();
+		boringPerson.setDate(new Date());
+		boringPerson.setName("Test");
+		boringPerson.setPersonType(PersonType.BORING);
 
-			Defaults.setDateFormat(PersonEndpoint.DATE_FORMAT);
+		Defaults.setDateFormat(PersonEndpoint.DATE_FORMAT);
+
+		FlowPanel flowPanel = new FlowPanel();
+
+		Button personListButton = executePersonList(coolPerson);
+		Button personWithErrorListButton = executePersonWithErrorList(boringPerson);
+
+		flowPanel.add(personListButton);
+		flowPanel.add(personWithErrorListButton);
+
+		RootPanel.get("flowPanel").add(flowPanel);
+	}
+
+	private Button executePersonList(PersonDto person) {
+		Button personListButton = new Button("Click me: " + person.getPersonType().name());
+
+		personListButton.addClickHandler(clickEvent -> {
+			logger.info("Hello World: executePersonList");
+
 			PersonClient personClient = GWT.create(RestPersonClient.class);
 			Resource resource = new Resource(SERVER_CONTEXT_PATH);
 			((RestServiceProxy) personClient).setResource(resource);
@@ -73,6 +94,36 @@ public class BasicGwtEntryPoint implements EntryPoint {
 			});
 		});
 
-		RootPanel.get("helloButton").add(button);
+		return personListButton;
 	}
+
+	private Button executePersonWithErrorList(PersonDto person) {
+		Button personWithErrorListButton = new Button("Click me: " + person.getPersonType().name());
+
+		personWithErrorListButton.addClickHandler(clickEvent -> {
+			logger.info("Hello World: executePersonWithErrorList");
+
+			DirectRestPersonWithErrorClient personClient = GWT.create(DirectRestPersonWithErrorClient.class);
+			Resource resource = new Resource(SERVER_CONTEXT_PATH);
+			((RestServiceProxy) personClient).setResource(resource);
+
+			REST.withCallback(new MethodCallback<List<PersonDto>>() {
+				@Override
+				public void onFailure(Method method, Throwable exception) {
+					logger.info("Error: " + exception + " - Messages: " + method.getResponse().getText());
+				}
+
+				@Override
+				public void onSuccess(Method method, List<PersonDto> response) {
+					response.forEach(person -> logger.info("Person: " + person.getName() + " - Date: "
+							+ person.getDate() + " - Type: " + person.getPersonType()));
+				}
+
+			}).call(personClient).getPersonsWithError();
+
+		});
+
+		return personWithErrorListButton;
+	}
+
 }

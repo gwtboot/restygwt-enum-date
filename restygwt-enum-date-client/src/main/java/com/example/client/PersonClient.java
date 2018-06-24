@@ -25,6 +25,7 @@ import org.fusesource.restygwt.client.MethodCallback;
 import com.example.api.PersonDto;
 
 public interface PersonClient {
-	
+
 	void getPersons(MethodCallback<List<PersonDto>> callback);
+
 }
