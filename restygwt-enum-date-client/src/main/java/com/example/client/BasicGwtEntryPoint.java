@@ -75,6 +75,8 @@ public class BasicGwtEntryPoint implements EntryPoint {
 		personListButton.addClickHandler(clickEvent -> {
 			logger.info("Hello World: executePersonList");
 
+			// We can use general client without the extension
+			// to RestyGwt RestService
 			PersonClient personClient = GWT.create(RestPersonClient.class);
 			Resource resource = new Resource(SERVER_CONTEXT_PATH);
 			((RestServiceProxy) personClient).setResource(resource);
@@ -107,10 +109,12 @@ public class BasicGwtEntryPoint implements EntryPoint {
 			Resource resource = new Resource(SERVER_CONTEXT_PATH);
 			((RestServiceProxy) personClient).setResource(resource);
 
+			// We need to use specific client for RestyGwt
+			// DirectRestService
 			REST.withCallback(new MethodCallback<List<PersonDto>>() {
 				@Override
 				public void onFailure(Method method, Throwable exception) {
-					logger.info("Error: " + exception + " - Messages: " + method.getResponse().getText());
+					logger.info("Error: " + exception + "\nMessages: " + method.getResponse().getText());
 				}
 
 				@Override
@@ -120,7 +124,6 @@ public class BasicGwtEntryPoint implements EntryPoint {
 				}
 
 			}).call(personClient).getPersonsWithError();
-
 		});
 
 		return personWithErrorListButton;

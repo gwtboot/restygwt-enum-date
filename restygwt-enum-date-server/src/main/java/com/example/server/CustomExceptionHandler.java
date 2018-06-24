@@ -37,7 +37,7 @@ public class CustomExceptionHandler {
 		ErrorDto errorDto = new ErrorDto();
 		errorDto.setDetail(accessDeniedException.getMessage());
 		errorDto.setErrorcode("ERROR_NUMBER_2018");
-		errorDto.setMessage("Error Authorization!");
+		errorDto.setMessage("Error Authorization");
 		errorDto.setStatus(HttpStatus.BAD_REQUEST.toString());
 
 		return errorDto;
