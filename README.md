@@ -16,7 +16,7 @@ There are three modules available:
 
 On the development time you should start two processes: Client and Server. But this is
 not a must. If you just need to build your UI you only need to start the Client part
-and you can mock all the call to the REST APIs in from Server part with simple interfaces.
+and you can mock all the call to the REST APIs from Server part with simple interfaces.
 
 ## API
 For the APIs you just need to run mvn:clean install to deploy your API to the local
