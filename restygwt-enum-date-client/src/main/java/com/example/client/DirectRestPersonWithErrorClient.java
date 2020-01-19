@@ -37,7 +37,7 @@ public interface DirectRestPersonWithErrorClient extends DirectRestService, Pers
 
 	@Override
 	@GET
-	@Path(PersonEndpoint.PERSON_WITH_ERROR_LIST)
+	@Path(PersonEndpoint.PERSON_LIST)
 	List<PersonDto> getPersons();
 
 	@Override
