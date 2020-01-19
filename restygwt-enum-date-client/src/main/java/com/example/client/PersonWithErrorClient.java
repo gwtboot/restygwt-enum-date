@@ -20,10 +20,16 @@ package com.example.client;
 
 import java.util.List;
 
+import com.example.api.AccessDeniedException;
+import com.example.api.PersonApi;
 import com.example.api.PersonDto;
 
-public interface PersonWithErrorClient {
+public interface PersonWithErrorClient extends PersonApi {
 
-	List<PersonDto> getPersonsWithError();
+	@Override
+	List<PersonDto> getPersons();
+
+	@Override
+	List<PersonDto> getPersonsWithError() throws AccessDeniedException;
 
 }

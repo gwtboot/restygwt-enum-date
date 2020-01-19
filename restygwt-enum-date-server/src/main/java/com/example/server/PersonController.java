@@ -18,7 +18,6 @@
  */
 package com.example.server;
 
-import java.nio.file.AccessDeniedException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -28,14 +27,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.api.AccessDeniedException;
+import com.example.api.PersonApi;
 import com.example.api.PersonDto;
 import com.example.api.PersonEndpoint;
 import com.example.api.PersonType;
 
 @CrossOrigin
 @RestController
-public class PersonController {
+public class PersonController implements PersonApi {
 
+	@Override
 	@RequestMapping(method = RequestMethod.GET, value = PersonEndpoint.PERSON_LIST)
 	public List<PersonDto> getPersons() {
 		List<PersonDto> persons = new ArrayList<>();
@@ -56,6 +58,7 @@ public class PersonController {
 		return persons;
 	}
 
+	@Override
 	@RequestMapping(method = RequestMethod.GET, value = PersonEndpoint.PERSON_WITH_ERROR_LIST)
 	public List<PersonDto> getPersonsWithError() throws AccessDeniedException {
 		throw new AccessDeniedException("Cannot access the file");
