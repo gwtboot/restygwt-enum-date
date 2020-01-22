@@ -21,13 +21,21 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-/target/
-/.DS_Store
-/.project
-/.settings/
+*/target/
+*/.DS_Store
+*/.project
+*.project
+*/.classpath
+*/.settings/
+*.settings/
+*.factorypath*
 
-/.idea
+*/.idea
 *.iml
-/.metadata/
 
-/.vscode
+*.DS_Store*
+
+*.sts4-cache
+
+*.metadata
+*.vscode

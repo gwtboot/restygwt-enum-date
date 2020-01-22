@@ -21,14 +21,14 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.example</groupId>
   <artifactId>restygwt-enum-date</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0-SNAPSHOT</version>
   <name>restygwt-enum-date</name>
   <packaging>pom</packaging>
   
   <modules>
-  	 <module>restygwt-enum-date-api</module>
-	 <module>restygwt-enum-date-client</module>
-	 <module>restygwt-enum-date-server</module>
+  	  <module>restygwt-enum-date-api</module>
+	    <module>restygwt-enum-date-client</module>
+	    <module>restygwt-enum-date-server</module>
   </modules>
   
 </project>

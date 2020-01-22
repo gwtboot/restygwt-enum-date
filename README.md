@@ -31,6 +31,12 @@ For the Client part you can start the standard process for GWT just like it is s
 https://github.com/gwtboot/gwt-boot-samples
 ```
 
+Start with following command:
+
+```
+mvn gwt:generate-module gwt:devmode
+```
+
 ## Server
 For the Server part you just start the Spring Boot app. In this example the class: 
 
