@@ -76,6 +76,12 @@
 					<startupUrls>
 						<url>/example/</url>
 					</startupUrls>
+					<compilerArgs>
+						<arg>-generateJsInteropExports</arg>
+						<arg>-compileReport</arg>
+						<arg>-style</arg>
+						<arg>PRETTY</arg>
+					</compilerArgs>
 				</configuration>
 			</plugin>
 
