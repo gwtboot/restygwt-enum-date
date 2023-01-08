@@ -10,7 +10,7 @@ This example shows how to structure your Maven modules for a development toward 
 # Modules
 
 There are three modules available:
-1. _API_: restygwt-enum-date-api
+1. _Shared_: restygwt-enum-date-shared
 2. _Client / Web browser with GWT_: restygwt-enum-date-client
 3. _Server with Spring Boot_: restygwt-enum-date-server
 
