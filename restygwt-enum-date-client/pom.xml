@@ -37,19 +37,19 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<restygwt-enum-date-api.version>1.0.0-SNAPSHOT</restygwt-enum-date-api.version>
+		<restygwt-enum-date-shared.version>1.0.0-SNAPSHOT</restygwt-enum-date-shared.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>com.example</groupId>
-			<artifactId>restygwt-enum-date-api</artifactId>
-			<version>${restygwt-enum-date-api.version}</version>
+			<artifactId>restygwt-enum-date-shared</artifactId>
+			<version>${restygwt-enum-date-shared.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.example</groupId>
-			<artifactId>restygwt-enum-date-api</artifactId>
-			<version>${restygwt-enum-date-api.version}</version>
+			<artifactId>restygwt-enum-date-shared</artifactId>
+			<version>${restygwt-enum-date-shared.version}</version>
 			<classifier>sources</classifier>
 		</dependency>
 

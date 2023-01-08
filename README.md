@@ -20,9 +20,9 @@ On the development time you should start two processes: Client and Server. But t
 not a must. If you just need to build your UI you only need to start the Client part
 and you can mock all the call to the REST APIs from Server part with simple interfaces.
 
-## API
-For the APIs you just need to run mvn:clean install to deploy your API to the local
-Maven repository. The API modul is your interface between the Client and the Server part.
+## Shared
+For the Shared classes and interfaces you just need to run mvn:clean install to deploy your shared to the local
+Maven repository. The Shared module is your interface between the Client and the Server part.
 
 ## Client
 For the Client part you can start the standard process for GWT just like it is shown in the example from GWT Boot: 
