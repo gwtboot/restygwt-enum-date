@@ -1,7 +1,7 @@
 # RestyGWT: restygwt-enum-date
 RestyGWT Example for Date and Enum.
 
-[![Build Status](https://travis-ci.com/gwtboot/restygwt-enum-date.svg?branch=master)](https://travis-ci.com/gwtboot/restygwt-enum-date)
+![Build Status](https://github.com/gwtboot/restygwt-enum-date/actions/workflows/maven.yml/badge.svg)
 
 This example uses GWT Boot: https://github.com/gwtboot/gwt-boot-samples
 
